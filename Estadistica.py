@@ -1,6 +1,8 @@
-# valor=False
-# def validar(valor):
-#     for x 
+import ast
+
+# def validar(lista):
+#     largo=len()-1
+#     for x in range(largo):
 
 def sacar_media(lista):
     largo=len(lista)-1
@@ -15,18 +17,19 @@ def sacar_media(lista):
 
 
 def main():
-    milist=[]
-    milista=list(input("Pasame una lista de números que quieres sacarle las medidas \
-de tendencia central: \n"))
+    milist=input("Pasame una lista de números que quieres sacarle las medidas \
+de tendencia central: \n")
+    milista=list(ast.literal_eval(milist))
+    milista.sort()
     desicion=bool(input(f"¿Esta es la lista que quieres que calcular?\n({milista})\n"))
     while desicion==False:
         try:
             if desicion == False:
-                milista=list(input("Pasame la lista otra vez "))
-                desicion=bool(input(f"¿Esta es la lista que quieres que calcular?\n({milista})\n"))
+                milist=input("Pasame la lista otra vez ")
+                milista=list(ast.literal_eval(milist))
+                desicion=bool(input(f"¿Esta es la lista que quieres calcular?\n( {milista} )\n"))
         except:
             break
-    milista.sort()
     sacar_media(milista)
 if __name__=='__main__':
     main()
