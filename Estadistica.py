@@ -1,23 +1,32 @@
-valor=False
-def validar(valor):
-    for x 
+# valor=False
+# def validar(valor):
+#     for x 
 
 def sacar_media(lista):
-    largo=len(lista)
-    if largo%2==0:
-        indice2=(largo/2)+1
-        media=(lista[largo/2]+lista[(largo/2)+1])/2
-        return media
+    largo=len(lista)-1
+    if largo%2!=0:
+        indice=int(largo/2)
+        indice2=int((largo/2)+1)
+        media=(lista[indice]+lista[indice2])/2
+        print(media)
     else:
-        return lista[largo/2]
-milista=[]
-def main():
-    milista=input("Pasame una lista de números que quieres sacarle las medidas \
-        de tendencia central \n")
-    print(milista)
-    desicion=input("¿Esta es la lista que quieres que calcular?")
-    if desicion == 'si':
-        break
+        print(lista[int(largo/2)+1])
+        # print("Hubo un pequeño error, la lista no puede contener letras")
 
-if __name__=='__main__':
+
+def main():
+    milist=[]
+    milista=list(input("Pasame una lista de números que quieres sacarle las medidas \
+de tendencia central: \n"))
+    desicion=bool(input(f"¿Esta es la lista que quieres que calcular?\n({milista})\n"))
+    while desicion==False:
+        try:
+            if desicion == False:
+                milista=list(input("Pasame la lista otra vez "))
+                desicion=bool(input(f"¿Esta es la lista que quieres que calcular?\n({milista})\n"))
+        except:
+            break
+    milista.sort()
     sacar_media(milista)
+if __name__=='__main__':
+    main()
